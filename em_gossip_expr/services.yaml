@@ -1,0 +1,49 @@
+- client: !!python/object/new:p2psimpy.config.PeerType
+  - PeerConfig:
+      bandwidth_dl:
+        Dist:
+          name: norm
+          params: (6553600.0, 1310720.0)
+      bandwidth_ul:
+        Dist:
+          name: norm
+          params: (6553600.0, 1310720.0)
+      location:
+        Dist:
+          name: sample
+          params: '[''Ohio'', ''Ireland'', ''Tokyo'']'
+  - ClientP2PConnectionManager:
+      ClientConnectionConfig:
+        max_peers: 2
+        min_peers: 1
+    MessageProducer:
+      MessageProducerConfig:
+        init_fanout: 1
+        init_timeout: 2000
+  peer: !!python/object/new:p2psimpy.config.PeerType
+  - PeerConfig:
+      bandwidth_dl:
+        Dist:
+          name: norm
+          params: (6553600.0, 1310720.0)
+      bandwidth_ul:
+        Dist:
+          name: norm
+          params: (6553600.0, 1310720.0)
+      location:
+        Dist:
+          name: sample
+          params: '[''Ohio'', ''Ireland'', ''Tokyo'']'
+  - GossipService:
+      GossipConfig:
+        exclude_types: !!set
+          bootstrap: null
+          client: null
+    P2PConnectionManager:
+      ConnectionConfig:
+        max_peers: 8
+        min_peers: 4
+- ClientP2PConnectionManager: null
+  GossipService: null
+  MessageProducer: null
+  P2PConnectionManager: null

@@ -61,8 +61,8 @@ class Peer:
         self.storage = {}
 
         # Monitoring services 
-        self.bytes_load = {} # Overhead on bytes per sec 
-        self.msg_count_load = {} # Msg per sec 
+        self.bytes_load = {} # Overhead on bytes per sec
+        self.msg_count_load = {} # Msg per sec
 
         # Start peer as it is created
         self.env.process(self.run())
@@ -138,7 +138,7 @@ class Peer:
             msg_sender =  msg.sender
 
             # Monitor the overhead of the message size 
-            now_sec = int(self.env.now / 1000) 
+            now_sec = int(self.env.now / 1000)
             self.bytes_load[now_sec] = self.bytes_load.get(now_sec, 0) + msg.size
             self.msg_count_load[now_sec] = self.msg_count_load.get(now_sec, 0) + 1
 
@@ -156,9 +156,9 @@ class Peer:
 
             if not services:
                 if self.logger:
-                    self.logger.error("No handler for the message %s", msg_type)
-                raise Exception("No handler for the message ", msg_type, repr(self))
-            else: 
+                    self.logger.error("No handler for the message %s", type(msg))
+                raise Exception("No handler for the message ", type(msg), repr(self))
+            else:
                 for service_id in services:
                     self.handlers[service_id].handle_message(msg)
 

@@ -1,0 +1,33 @@
+Locations:
+  latencies:
+    Ireland:
+      Ireland:
+        Dist:
+          name: invgamma
+          params: (6.4360455224301525, 0.8312748033308526, 1.086191852963273)
+      Tokyo:
+        Dist:
+          name: norm
+          params: (131.0275, 0.25834811785650774)
+    Ohio:
+      Ireland:
+        Dist:
+          name: norm
+          params: (73.6995, 1.1958309219709713)
+      Ohio:
+        Dist:
+          name: invgamma
+          params: (5.5409, 0.333305, 0.987249)
+      Tokyo:
+        Dist:
+          name: norm
+          params: (156.00904977375566, 0.09469886668079797)
+    Tokyo:
+      Tokyo:
+        Dist:
+          name: invgamma
+          params: (11.104508341331055, 0.3371934865734555, 2.0258998705983737)
+  locations:
+  - Ohio
+  - Ireland
+  - Tokyo
